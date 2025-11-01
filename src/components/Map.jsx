@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { createCircleBoundary, getColorForCommune } from '../utils/boundaries';
@@ -565,8 +565,10 @@ const Map = ({
         if (!bounds.isEmpty()) {
           map.current.fitBounds(bounds, {
             padding: { top: 100, bottom: 100, left: 450, right: 100 },
-            maxZoom: 12,
+              maxZoom: 12,
               minZoom: 8,
+              duration: 1000
+          });
         }
       } catch (error) {
         console.warn('Error fitting bounds:', error);
@@ -986,9 +988,11 @@ const Map = ({
           setTimeout(() => {
             map.current.fitBounds(bounds, {
               padding: { top: 100, bottom: 100, left: 100, right: 100 },
-              maxZoom: 12,
-              minZoom: 8,
-              duration: 1500
+                maxZoom: 12,
+                minZoom: 8,
+                duration: 1500
+            });
+          }, 100);
         }
       } catch (error) {
         console.error('Error showing hub territory:', error);
