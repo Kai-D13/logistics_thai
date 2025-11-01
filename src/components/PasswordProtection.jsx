@@ -5,8 +5,8 @@ const PasswordProtection = ({ children }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Password Ä‘Æ°á»£c set trong environment variable
-  const CORRECT_PASSWORD = import.meta.env.VITE_ACCESS_PASSWORD || 'logistics2025';
+  // Password được set trong environment variable
+  const CORRECT_PASSWORD = import.meta.env.VITE_ACCESS_PASSWORD || 'logistics2024';
 
   useEffect(() => {
     // Check if already authenticated (stored in sessionStorage)
@@ -23,7 +23,7 @@ const PasswordProtection = ({ children }) => {
       sessionStorage.setItem('logistics_auth', 'true');
       setError('');
     } else {
-      setError('Password khÃ´ng Ä‘Ãºng. Vui lÃ²ng thá»­ láº¡i.');
+      setError('Mật khẩu không đúng. Vui lòng thử lại.');
       setPassword('');
     }
   };
@@ -59,7 +59,7 @@ const PasswordProtection = ({ children }) => {
           onMouseEnter={(e) => e.target.style.backgroundColor = '#c82333'}
           onMouseLeave={(e) => e.target.style.backgroundColor = '#dc3545'}
         >
-          ðŸšª Logout
+          🚪 Đăng xuất
         </button>
       </>
     );
@@ -88,14 +88,14 @@ const PasswordProtection = ({ children }) => {
             margin: '0 0 10px 0',
             color: '#333'
           }}>
-            ðŸ—ºï¸ Logistics Hub System
+            🗺️ Logistics Hub System
           </h1>
           <p style={{
             fontSize: '14px',
             color: '#666',
             margin: 0
           }}>
-            Please enter password to access
+            Vui lòng nhập mật khẩu để truy cập
           </p>
         </div>
 
@@ -108,13 +108,13 @@ const PasswordProtection = ({ children }) => {
               color: '#333',
               marginBottom: '8px'
             }}>
-              Password:
+              Mật khẩu:
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password"
+              placeholder="Nhập mật khẩu"
               autoFocus
               style={{
                 width: '100%',
@@ -141,7 +141,7 @@ const PasswordProtection = ({ children }) => {
               fontSize: '14px',
               marginBottom: '20px'
             }}>
-              âš ï¸ {error}
+              ⚠️ {error}
             </div>
           )}
 
@@ -162,7 +162,7 @@ const PasswordProtection = ({ children }) => {
             onMouseEnter={(e) => e.target.style.backgroundColor = '#5568d3'}
             onMouseLeave={(e) => e.target.style.backgroundColor = '#667eea'}
           >
-            ðŸ”“ Login
+            🔓 Đăng nhập
           </button>
         </form>
 
@@ -175,7 +175,7 @@ const PasswordProtection = ({ children }) => {
           color: '#666',
           textAlign: 'center'
         }}>
-          ðŸ’¡ LiÃªn há»‡ admin Ä‘á»ƒ Ä‘Æ°á»£c cáº¥p máº­t kháº©u truy cáº­p
+          💡 Liên hệ admin để được cấp mật khẩu truy cập
         </div>
       </div>
     </div>
