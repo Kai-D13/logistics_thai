@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { createCircleBoundary, getColorForCommune } from '../utils/boundaries';
@@ -65,7 +65,7 @@ const Map = ({
   const hubTerritoryLayerRef = useRef(null);
   const boundaryLayersRef = useRef([]); // District boundary layers
   const [mapLoaded, setMapLoaded] = useState(false); // Track map load state
-  const initialCenter = [104.9, 12.5]; // Center of Cambodia
+  const initialCenter = [100.5, 13.7]; // Center of Thailand (Bangkok)
   const initialZoom = 6.5;
 
   // Initialize map
@@ -368,7 +368,7 @@ const Map = ({
                     📍 <strong>Địa chỉ:</strong>
                   </div>
                   <div style="font-size: 12px; color: #333; margin-left: 20px;">
-                    ${hub.address || `${hub.province_name}, Cambodia`}
+                    ${hub.address || `${hub.province_name}, Thailand`}
                   </div>
                 </div>
 
@@ -566,6 +566,9 @@ const Map = ({
           map.current.fitBounds(bounds, {
             padding: { top: 100, bottom: 100, left: 450, right: 100 },
             maxZoom: 12,
+              minZoom: 8,
+              minZoom: 8,
+              minZoom: 8,
             duration: 1000
           });
         }
@@ -988,6 +991,9 @@ const Map = ({
             map.current.fitBounds(bounds, {
               padding: { top: 100, bottom: 100, left: 100, right: 100 },
               maxZoom: 12,
+              minZoom: 8,
+              minZoom: 8,
+              minZoom: 8,
               duration: 1500
             });
           }, 100);
