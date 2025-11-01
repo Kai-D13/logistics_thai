@@ -37,7 +37,7 @@ function App() {
     ])
       .then(([hubsData, destinationsData, districtsData]) => {
         setHubs(hubsData);
-        setDestinations(destinationsData);
+        setDestinations(destinationsData.Sheet1 || destinationsData);
         setDistricts(districtsData.features || []);
         // Set default hub to first one
         if (hubsData.length > 0) {
